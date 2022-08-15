@@ -15,31 +15,31 @@ output: 0 => since 0 is the lowest that satisfies condition
 //Time: O(n) | Space: O(1)
 
 function indexEqualsValueSearch(arr) {
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] == i) return i;
-    }
-    return -1;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == i) return i;
+  }
+  return -1;
 }
 
 //Solution 2
 //Approach: Binary Search
-//Time: O(logn) | Space: O(1)
+//Time: O(log n) | Space: O(1)
 
 function indexEqualsValueSearch(arr) {
-    let start = 0,
-        end = arr.length - 1,
-        answer = -1;
+  let start = 0,
+    end = arr.length - 1,
+    answer = -1;
 
-    while (start <= end) {
-        let mid = Math.floor((start + end) / 2);
-        if (mid === arr[mid]) {
-            answer = mid;
-            end = mid - 1; 
-        } else if (mid > arr[mid]) {
-            start = mid + 1;
-        } else {
-            end = mid - 1;
-        }
+  while (start <= end) {
+    let mid = Math.floor((start + end) / 2);
+    if (mid === arr[mid]) {
+      answer = mid;
+      end = mid - 1;
+    } else if (mid > arr[mid]) {
+      start = mid + 1;
+    } else {
+      end = mid - 1;
     }
-    return answer;
+  }
+  return answer;
 }
